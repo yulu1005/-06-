@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="476.0" prefWidth="654.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="G9_06.G9Controller">
+    <children>
+        <VBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" spacing="10.0">
+            <HBox spacing="10.0">
+                <Label text="設定上限金額：" />
+                <TextField fx:id="limitField" promptText="請輸入上限金額" />
+                <Button onAction="#setLimit" text="設定" />
+            </HBox>
+
+            <HBox spacing="10.0">
+                <Label text="日期：" />
+                <DatePicker fx:id="datePicker" />
+                <Label text="金額：" />
+                <TextField fx:id="amountField" promptText="請輸入金額" />
+            </HBox>
+            <HBox spacing="10.0">
+                <Label text="類別：" />
+                <ComboBox fx:id="categoryCombo" promptText="選擇類別" />
+                 <Label text="備註：" />
+                <TextField fx:id="noteField" promptText="請輸入備註" />
+            </HBox>
+            <HBox spacing="10.0">
+                <Button onAction="#addRecord" text="新增" />
+                <Button onAction="#clearFields" text="清除" />
+                <Button onAction="#deleteRecord" text="刪除選中記錄" />
+                <Button onAction="#editRecord" text="修改選中記錄" layoutX="450.0" layoutY="430.0" />
+
+            </HBox>
+            <HBox spacing="10.0">
+                <Label fx:id="balanceLabel" text="當前餘額: 0.0" textFill="#e01010" />
+            </HBox>
+            <HBox layoutX="10.0" layoutY="430.0" spacing="10.0" />
+
+        </VBox>
+
+        <!-- 交易記錄表格 -->
+        <TableView fx:id="recordsTable" layoutX="37.0" layoutY="169.0" prefHeight="291.0" prefWidth="580.0">
+            <columns>
+                <TableColumn fx:id="dateColumn" prefWidth="100.0" text="日期" />
+                <TableColumn fx:id="amountColumn" prefWidth="100.0" text="金額" />
+                <TableColumn fx:id="categoryColumn" prefWidth="150.0" text="類別" />
+                <TableColumn fx:id="noteColumn" prefWidth="230.0" text="備註" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>
